@@ -1,0 +1,271 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Academy — Curso Completo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600;700&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- ══════ SIDEBAR ══════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-icon">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M18 3C9.716 3 3 9.716 3 18s6.716 15 15 15 15-6.716 15-15S26.284 3 18 3z" fill="url(#grad1)"/>
+        <path d="M13 12h5a3 3 0 010 6h-3v2h-2V12zm2 2v2h3a1 1 0 000-2h-3z" fill="white"/>
+        <path d="M21 18h2v4h3v2h-5v-6z" fill="white" opacity=".8"/>
+        <defs>
+          <linearGradient id="grad1" x1="3" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3B6FFF"/><stop offset="1" stop-color="#7B3FFF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">Python<strong>Academy</strong></span>
+      <span class="brand-sub">2º Ano · Técnico em Informática</span>
+    </div>
+  </div>
+
+  <!-- Student profile -->
+  <div class="profile-card">
+    <div class="profile-avatar" id="profile-avatar">👨‍💻</div>
+    <div class="profile-right">
+      <div class="profile-name" id="profile-name">Estudante</div>
+      <div class="profile-level">
+        <span class="level-badge" id="level-badge">Nível 1</span>
+        <span class="level-title" id="level-title">Iniciante</span>
+      </div>
+      <div class="xp-track">
+        <div class="xp-fill" id="xp-fill"></div>
+      </div>
+      <div class="xp-label"><span id="xp-cur">0</span> / <span id="xp-max">500</span> XP</div>
+    </div>
+  </div>
+
+  <!-- Streak -->
+  <div class="streak-bar">
+    <span class="streak-icon">🔥</span>
+    <span class="streak-text"><strong id="streak-days">0</strong> dias seguidos</span>
+    <button class="streak-btn" id="check-in-btn">Check-in</button>
+  </div>
+
+  <nav class="nav-menu">
+    <div class="nav-group-label">Principal</div>
+    <button class="nav-item active" data-section="home"><span class="nav-ico">🏠</span><span>Início</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="trilha"><span class="nav-ico">🗺️</span><span>Trilha de Aprendizado</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="modulos"><span class="nav-ico">📚</span><span>Módulos</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="videoaulas"><span class="nav-ico">🎬</span><span>Videoaulas</span><span class="nav-arrow">›</span></button>
+    <div class="nav-group-label">Praticar</div>
+    <button class="nav-item" data-section="exercicios"><span class="nav-ico">✏️</span><span>Exercícios</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="simulados"><span class="nav-ico">📝</span><span>Simulados</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="desafios"><span class="nav-ico">⚡</span><span>Desafios</span><span class="nav-arrow">›</span></button>
+    <div class="nav-group-label">Comunidade</div>
+    <button class="nav-item" data-section="ranking"><span class="nav-ico">🏆</span><span>Ranking</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="downloads"><span class="nav-ico">📥</span><span>Downloads</span><span class="nav-arrow">›</span></button>
+    <button class="nav-item" data-section="dicas"><span class="nav-ico">💡</span><span>Dicas</span><span class="nav-arrow">›</span></button>
+  </nav>
+</aside>
+
+<!-- Overlay mobile -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- ══════ HAMBURGER ══════ -->
+<button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+
+<!-- ══════ MAIN ══════ -->
+<main class="main" id="main">
+
+  <!-- ── HOME ── -->
+  <section class="page active" id="page-home">
+    <div class="hero-section">
+      <div class="hero-bg-glow"></div>
+
+      <!-- Logos animadas -->
+      <div class="floating-icons">
+        <div class="fi fi-py" style="--d:0s;--x:10%;--y:20%">🐍</div>
+        <div class="fi fi-code" style="--d:.4s;--x:85%;--y:15%">{ }</div>
+        <div class="fi fi-term" style="--d:.8s;--x:5%;--y:70%">⌨️</div>
+        <div class="fi fi-star" style="--d:1.2s;--x:90%;--y:65%">⭐</div>
+        <div class="fi fi-bolt" style="--d:1.6s;--x:50%;--y:8%">⚡</div>
+        <div class="fi fi-gear" style="--d:2s;--x:15%;--y:45%">⚙️</div>
+        <div class="fi fi-cloud" style="--d:2.4s;--x:80%;--y:42%">☁️</div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hb-dot"></span>
+          Plataforma de Ensino Interativa
+        </div>
+
+        <h1 class="hero-title">
+          <span class="ht-py">Python</span><br>
+          <span class="ht-acad">Academy</span>
+        </h1>
+
+        <p class="hero-desc">
+          Do zero ao avançado. Aprenda Python com aulas interativas,<br>
+          exercícios práticos e projetos reais — inspirado em Duolingo e Mimo.
+        </p>
+
+        <!-- Code snippet animado -->
+        <div class="hero-code-block">
+          <div class="hcb-bar"><span></span><span></span><span></span><span class="hcb-file">main.py</span></div>
+          <div class="hcb-body" id="hero-code-body"></div>
+        </div>
+
+        <div class="hero-ctas">
+          <button class="cta-primary" onclick="navigateTo('trilha')">🚀 Começar Trilha</button>
+          <button class="cta-secondary" onclick="navigateTo('modulos')">📚 Ver Módulos</button>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="hs-item"><span class="hs-num">3</span><span class="hs-lbl">Níveis</span></div>
+          <div class="hs-div"></div>
+          <div class="hs-item"><span class="hs-num">18</span><span class="hs-lbl">Tópicos</span></div>
+          <div class="hs-div"></div>
+          <div class="hs-item"><span class="hs-num">60+</span><span class="hs-lbl">Exercícios</span></div>
+          <div class="hs-div"></div>
+          <div class="hs-item"><span class="hs-num">8+</span><span class="hs-lbl">Projetos</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trilha rápida visual -->
+    <div class="section-block">
+      <div class="sb-header">
+        <h2>🗺️ Trilha do Curso</h2>
+        <button class="sb-link" onclick="navigateTo('trilha')">Ver completa →</button>
+      </div>
+      <div class="trail-mini" id="trail-mini"></div>
+    </div>
+
+    <!-- Progresso -->
+    <div class="section-block">
+      <div class="sb-header"><h2>📊 Seu Progresso</h2></div>
+      <div class="progress-cards" id="home-progress"></div>
+    </div>
+  </section>
+
+  <!-- ── TRILHA DE APRENDIZADO ── -->
+  <section class="page" id="page-trilha">
+    <div class="page-header">
+      <h2 class="page-title">🗺️ Trilha de Aprendizado</h2>
+      <p class="page-desc">Siga o caminho recomendado do iniciante ao avançado</p>
+    </div>
+    <div class="trail-container" id="trail-container"></div>
+  </section>
+
+  <!-- ── MÓDULOS ── -->
+  <section class="page" id="page-modulos">
+    <div class="page-header">
+      <h2 class="page-title">📚 Módulos do Curso</h2>
+      <p class="page-desc">Conteúdo completo organizado por nível e tema</p>
+    </div>
+    <div class="level-tabs" id="level-tabs">
+      <button class="lt-btn active" data-level="all">Todos</button>
+      <button class="lt-btn" data-level="basico"><span class="dot green"></span>Básico</button>
+      <button class="lt-btn" data-level="intermediario"><span class="dot yellow"></span>Intermediário</button>
+      <button class="lt-btn" data-level="avancado"><span class="dot red"></span>Avançado</button>
+    </div>
+    <div class="modules-grid" id="modules-grid"></div>
+  </section>
+
+  <!-- ── AULA ── -->
+  <section class="page" id="page-aula">
+    <div id="aula-wrap"></div>
+  </section>
+
+  <!-- ── VIDEOAULAS ── -->
+  <section class="page" id="page-videoaulas">
+    <div class="page-header">
+      <h2 class="page-title">🎬 Videoaulas</h2>
+      <p class="page-desc">Vídeos selecionados do YouTube organizados por módulo</p>
+    </div>
+    <div class="vf-bar" id="vf-bar"></div>
+    <div class="videos-grid" id="videos-grid"></div>
+  </section>
+
+  <!-- ── EXERCÍCIOS ── -->
+  <section class="page" id="page-exercicios">
+    <div class="page-header">
+      <h2 class="page-title">✏️ Banco de Exercícios</h2>
+      <p class="page-desc">Pratique com exercícios de todos os níveis — com correção automática</p>
+    </div>
+    <div class="ex-filters" id="ex-filters"></div>
+    <div class="ex-list" id="ex-list"></div>
+  </section>
+
+  <!-- ── SIMULADOS ── -->
+  <section class="page" id="page-simulados">
+    <div class="page-header">
+      <h2 class="page-title">📝 Simulados</h2>
+      <p class="page-desc">Teste seus conhecimentos com questões estilo prova técnica</p>
+    </div>
+    <div id="sim-lobby"></div>
+    <div id="sim-active" style="display:none"></div>
+  </section>
+
+  <!-- ── DESAFIOS ── -->
+  <section class="page" id="page-desafios">
+    <div class="page-header">
+      <h2 class="page-title">⚡ Desafios de Programação</h2>
+      <p class="page-desc">Complete desafios e suba no ranking</p>
+    </div>
+    <div class="desafios-grid" id="desafios-grid"></div>
+  </section>
+
+  <!-- ── RANKING ── -->
+  <section class="page" id="page-ranking">
+    <div class="page-header">
+      <h2 class="page-title">🏆 Ranking</h2>
+      <p class="page-desc">Os melhores alunos da turma</p>
+    </div>
+    <div id="ranking-wrap"></div>
+  </section>
+
+  <!-- ── DOWNLOADS ── -->
+  <section class="page" id="page-downloads">
+    <div class="page-header">
+      <h2 class="page-title">📥 Downloads</h2>
+      <p class="page-desc">Apostilas, resumos e materiais de estudo</p>
+    </div>
+    <div class="downloads-grid" id="downloads-grid"></div>
+  </section>
+
+  <!-- ── DICAS ── -->
+  <section class="page" id="page-dicas">
+    <div class="page-header">
+      <h2 class="page-title">💡 Dicas de Estudo</h2>
+      <p class="page-desc">Estratégias para aprender programação mais rápido</p>
+    </div>
+    <div class="dicas-grid" id="dicas-grid"></div>
+  </section>
+
+</main>
+
+<!-- Toast -->
+<div class="toast-wrap" id="toast-wrap">
+  <div class="toast" id="toast"></div>
+</div>
+
+<!-- XP Popup -->
+<div class="xp-popup" id="xp-popup"></div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-x" id="modal-x">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
